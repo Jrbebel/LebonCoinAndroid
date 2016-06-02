@@ -1,5 +1,6 @@
 package leboncoin.formation.fr.applicationleboncoin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -27,4 +28,15 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case 1: // Editeur
+                switch (resultCode) {
+                    case RESULT_OK:
+                        // --- Recuperation des donnees recues
+
+                        return;
+                }
+        }
+    }
 }
