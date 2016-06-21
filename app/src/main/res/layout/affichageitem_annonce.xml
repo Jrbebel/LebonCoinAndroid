@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearprincipale"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <!-- Login progress -->
+
+
+    <ImageView
+        android:id="@+id/imageViewAnnonce"
+
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="15sp">
+
+        <TextView
+            android:id="@+id/textViewAnnonce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#36007F"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewAnnonce1"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#404040"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</LinearLayout>

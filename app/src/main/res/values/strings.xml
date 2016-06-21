@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">MonBonCoin</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">mot de passe</string>
+    <string name="action_sign_in">Se connecter</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_principale">Mes annonces</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Configuration</string>
+    <string name="title_activity_categorie">Liste des categories</string>
+    <string name="action_regitrer">Enregistrement</string>
+    <string name="title_activity_reigion">La liste des regions</string>
+    <string name="email">Email</string>
+    <string name="nom">Nom</string>
+    <string name="prenom">Prenom</string>
+    <string name="adress">Adresse</string>
+    <string name="cdpostal">Code postal</string>
+    <string name="ville">Ville</string>
+    <string name="phone">Telephone</string>
+    <string name="dteNaissance">Date de naissance</string>
+    <string name="pseudo">Pseudo</string>
+    <string name="password">Mot de passe</string>
+    <string name="mdpConfirm">Confirmation</string>
+    <string name="region">region</string>
+    <string name="prompt_region">region</string>
+    <string name="title_activity_depose_annonce">Deposer annonce</string>
+</resources>

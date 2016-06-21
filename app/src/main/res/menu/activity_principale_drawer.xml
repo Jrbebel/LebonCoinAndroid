@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_offre"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Les Offres" />
+
+        <item
+            android:id="@+id/nav_demande"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Les demandes" />
+        <item
+            android:id="@+id/listcategorie"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Liste des Categories " />
+        <item
+            android:id="@+id/listregion"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Liste des regions" />
+    </group>
+
+    <item android:title="Mon compte">
+        <menu>
+            <item
+                android:id="@+id/mycompte"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Mon compte" />
+            <item
+                android:id="@+id/myannonce"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Mes annonces" />
+            <item
+                android:id="@+id/dspannonce"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Déposer une annonce" />
+            <item
+                android:id="@+id/deconnexion"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Déconnexion" />
+        </menu>
+    </item>
+
+</menu>
