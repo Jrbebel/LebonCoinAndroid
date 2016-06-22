@@ -7,7 +7,6 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.Button;
 
 import java.io.File;
 
@@ -15,7 +14,6 @@ public class CameraActivity extends AppCompatActivity {
 
     private static final int MEDIA_TYPE_IMAGE = 1;
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
-    private Button buttonPrendreUnePhoto;
     private Uri fileUri;
 
     /**

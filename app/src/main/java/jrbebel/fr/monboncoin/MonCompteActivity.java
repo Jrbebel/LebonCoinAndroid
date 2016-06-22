@@ -6,7 +6,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -97,7 +96,6 @@ public class MonCompteActivity extends AppCompatActivity {
         adresse = (TextView) findViewById(R.id.textViewAdresse);
         datenaissance = (TextView) findViewById(R.id.textViewBirthday);
         pseudo = (TextView) findViewById(R.id.textViewPseudo);
-        //mdp = (TextView) findViewById(R.id.textViewPdw);
 
         imageProfils = (ImageView) findViewById(R.id.imageButtonImageProfils); // Bouton image button ( image cliquable )
         buttonUpdateProfil = (Button) findViewById(R.id.buttonUpdateProfils);
@@ -116,18 +114,25 @@ public class MonCompteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                /**Demarrage de l'intent de la caméra */
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                Intent intent = new Intent(MonCompteActivity.this, CameraActivity.class);
+                startActivity(intent);
 
-                // Cree un fichier vide pour sauvegarder la photo
-                fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
+/*
+                    */
+/**Demarrage de l'intent de la caméra *//*
 
-                // Ajoute un extra a l'intention :
-                // le fichier ou sera sauvegarder la photo
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-                // Demarre l'Intention de capture d'image
-                startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+                    // Cree un fichier vide pour sauvegarder la photo
+                    fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
+
+                    // Ajoute un extra a l'intention :
+                    // le fichier ou sera sauvegarder la photo
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+
+                    // Demarre l'Intention de capture d'image
+                    startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+*/
 
 
             }
