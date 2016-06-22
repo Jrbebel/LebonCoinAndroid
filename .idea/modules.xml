@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MonBonCoin.iml" filepath="$PROJECT_DIR$/MonBonCoin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LebonCoinAndroid.iml" filepath="$PROJECT_DIR$/LebonCoinAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

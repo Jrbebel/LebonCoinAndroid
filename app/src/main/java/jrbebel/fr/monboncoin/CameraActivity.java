@@ -3,12 +3,11 @@ package jrbebel.fr.monboncoin;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.widget.Toast;
 
-import java.io.File;
+import Classe.PathImage;
 
 public class CameraActivity extends AppCompatActivity {
 
@@ -16,63 +15,25 @@ public class CameraActivity extends AppCompatActivity {
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     private Uri fileUri;
 
-    /**
-     * type n'est pas utilise pour l'instant
-     * permettrait de distinguer photo et video
-     *
-     * @param type
-     * @return
-     */
-    private static Uri getOutputMediaFileUri(int type) {
-        return Uri.fromFile(getOutputMediaFile(type));
-    }
-
-    /**
-     * type n'est pas utilise pour l'instant
-     * permettrait de distinguer photo et video
-     *
-     * @param type
-     * @return
-     */
-    private static File getOutputMediaFile(int type) {
-
-        // Recuperation ou
-        // Creation d'un dossier dans /mnt/sdcard/Pictures/
-        File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "MonBonCoin/photo_profil/");
-
-        if (!mediaStorageDir.exists()) {
-            if (!mediaStorageDir.mkdirs()) {
-                Log.d("MesPhotos", "Impossible de creer le dossier");
-                return null;
-            }
-        }
-
-        // Creation du nom de la photo
-        //String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String name = "picture_user";
-        // Creation du fichier ... vide
-        // mediaStorageDir.getPath() + File.separator renvoie
-        // /mnt/sdcard/Pictures/
-        File mediaFile = new File(mediaStorageDir.getPath() + File.separator
-                + "IMG_" + name + ".jpg");
-
-        return mediaFile;
-    } // / getOutputMediaFile
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        onClick();
+        initComposantPitcure();
     }
 
-    public void onClick() {
+    public void initComposantPitcure() {
+
+
+        /***Type de la demande ou offre à afficher sur la page principale***/
+
 
         // Cree une intention pour la prise de photo
         // et renvoie le controle a l'appelant
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
         // Cree un fichier vide pour sauvegarder la photo
-        fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
+        fileUri = PathImage.getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
 
         // Ajoute un extra a l'intention :
         // le fichier ou sera sauvegarder la photo
@@ -82,4 +43,37 @@ public class CameraActivity extends AppCompatActivity {
         startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
 
     } // / onClick
+
+    /*****
+     * Result de l'activity
+     ****/
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                Intent intent = null;
+
+                Intent intentProvenance = getIntent();
+
+                if (intentProvenance.getStringExtra("camerApplication").equals("myCompte")) {
+                    intent = new Intent(this, MonCompteActivity.class);
+
+                }
+                startActivity(intent);
+                // Image captured and saved to fileUri specified in the Intent
+                //initComposant(); //j'appele la methode initComposant pour rafraichir la page apres la photo (a optimiser ou a changer)
+                //à prévoir pour envoyer vers le serveur
+                Toast.makeText(this, "Photo enregistrer", Toast.LENGTH_LONG).show();
+
+            } else if (resultCode == RESULT_CANCELED) {
+
+                Toast.makeText(this, "Vous avez annnuler la capture de la photo", Toast.LENGTH_LONG).show();
+
+            } else {
+
+                Toast.makeText(this, "L'image n'a pas pu etre enregistrer", Toast.LENGTH_LONG).show();
+            }
+        }
+
+    }
 }

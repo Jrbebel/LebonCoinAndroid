@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.File;
 
@@ -115,24 +114,8 @@ public class MonCompteActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(MonCompteActivity.this, CameraActivity.class);
+                intent.putExtra("camerApplication", "myCompte");
                 startActivity(intent);
-
-/*
-                    */
-/**Demarrage de l'intent de la caméra *//*
-
-                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-                    // Cree un fichier vide pour sauvegarder la photo
-                    fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
-
-                    // Ajoute un extra a l'intention :
-                    // le fichier ou sera sauvegarder la photo
-                    intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-
-                    // Demarre l'Intention de capture d'image
-                    startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
-*/
 
 
             }
@@ -164,28 +147,4 @@ public class MonCompteActivity extends AppCompatActivity {
 
     }
 
-    /*****
-     * Result de l'activity
-     ****/
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-
-                // Image captured and saved to fileUri specified in the Intent
-                initComposant(); //j'appele la methode initComposant pour rafraichir la page apres la photo (a optimiser ou a changer)
-                //à prévoir pour envoyer vers le serveur
-                Toast.makeText(this, "Photo enregistrer", Toast.LENGTH_LONG).show();
-
-            } else if (resultCode == RESULT_CANCELED) {
-
-                Toast.makeText(this, "Vous avez annnuler la capture de la photo", Toast.LENGTH_LONG).show();
-
-            } else {
-
-                Toast.makeText(this, "L'image n'a pas pu etre enregistrer", Toast.LENGTH_LONG).show();
-            }
-        }
-
-    }
 }
